@@ -1,0 +1,20 @@
+Given(/^I am at Recurly Log In Page$/) do
+  @browser.goto "https://app.recurly.com/login"
+end
+
+When(/^I enter valid email credentials "([^"]*)" field$/) do |email|
+  @browser.text_field(:id => "user_email").set(email)
+end
+
+When(/^I enter valid password credentials "([^"]*)" field$/) do |password|
+  @browser.li(:text, "Customers").click
+  @browser.a(:text, "Accounts").click
+end
+
+Then(/^I should see the <"([^"]*)"> message$/) do |expected|
+ @browser.text.should include expected
+end
+
+
+
+

@@ -1,0 +1,13 @@
+Feature: Verifying Account
+
+As a recurly user
+I want to log in
+So that page properly displays with correct account numbers
+
+Scenario: Logging into Recurly
+Given I am at Recurly Log In
+When I enter valid email credentials
+And I enter valid password credentials
+When I press log in button
+And I navigate to Accounts Summary
+Then the page displays successfully with correct number of accounts
