@@ -9,14 +9,42 @@ Recurly.default_currency = 'USD'
 
 puts 'Script successful' 
 
+
+
+
+Recurly::Account.find_each do |account|
+  puts "Account: #{account.inspect}"
+end
+
+
+account = Recurly::Account.find('1')
+account.billing_info = {
+  :first_name =>  'TestFirst',
+  :last_name => 'TestLast',
+  :number             => '4111-1111-1111-1111',
+  :verification_value => '123',
+  :month              => 11,
+  :year               => 2015,
+  :routing_number => '065400137',
+  :account_number => '4444000000005555',
+  :address1 => '123 Main St.',
+  :city => 'San Francisco',
+  :state => 'CA',
+  :country => 'US',
+  :zip => '94105'
+}
+account.billing_info.save
+puts (account.billing_info)
+puts "Billing Successfully Saved"
+
+puts "Creating Account ObjecT"
 account = Recurly::Account.create(
   :account_code => '1',
   :email        => 'testcompany@testcompany.com',
   :first_name   => 'TestName',
-  :last_name    => 'TestLastName',
-  :billing_info => 'http://api.test.host/v2/accounts/1/billing_info'
+  :last_name    => 'TestLastName'
 )
-
+puts account
 
 begin
   #if account does not exist, a NotFound Error will be thrown
@@ -32,3 +60,4 @@ rescue Recurly::API::UnprocessableEntity => e
 else
   puts "Successfully Created"
 end
+puts "Script completed successfully"
