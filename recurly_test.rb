@@ -7,17 +7,25 @@ Recurly.api_key        = '516102c4c9e2488094b4f14033791fd1'
 # To set a default currency for your API requests:
 Recurly.default_currency = 'USD'
 
-puts 'Script successful' 
+#set Counter to 0
+iNumberAccounts = 0
 
 
-
-
+#Find the # accounts present
 Recurly::Account.find_each do |account|
-  puts "Account: #{account.inspect}"
+  puts iNumberAccounts += 1
 end
 
+iAccountCode = iNumberAccounts += 1
 
 account = Recurly::Account.find('1')
+account_code = account.account_code
+email  = account_code + 'test@testmail.com'
+puts email
+
+
+
+
 account.billing_info = {
   :first_name =>  'TestFirst',
   :last_name => 'TestLast',
@@ -39,8 +47,8 @@ puts "Billing Successfully Saved"
 
 puts "Creating Account ObjecT"
 account = Recurly::Account.create(
-  :account_code => '1',
-  :email        => 'testcompany@testcompany.com',
+  :account_code => "#{iAccountCode}",
+  :email        => email,
   :first_name   => 'TestName',
   :last_name    => 'TestLastName'
 )
@@ -61,3 +69,4 @@ else
   puts "Successfully Created"
 end
 puts "Script completed successfully"
+puts account.account_code
