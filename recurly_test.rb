@@ -23,27 +23,24 @@ account_code = account.account_code
 email  = account_code + 'test@testmail.com'
 puts email
 
-
-
-
-account.billing_info = {
-  :first_name =>  'TestFirst',
-  :last_name => 'TestLast',
-  :number             => '4111-1111-1111-1111',
-  :verification_value => '123',
-  :month              => 11,
-  :year               => 2015,
-  :routing_number => '065400137',
-  :account_number => '4444000000005555',
-  :address1 => '123 Main St.',
-  :city => 'San Francisco',
-  :state => 'CA',
-  :country => 'US',
-  :zip => '94105'
-}
-account.billing_info.save
-puts (account.billing_info)
-puts "Billing Successfully Saved"
+#account.billing_info = {
+#  :first_name =>  'TestFirst',
+#  :last_name => 'TestLast',
+#  :number             => '4111-1111-1111-1111',
+#  :verification_value => '123',
+#  :month              => 11,
+#  :year               => 2015,
+#  :routing_number => '065400137',
+#  :account_number => '4444000000005555',
+#  :address1 => '123 Main St.',
+#  :city => 'San Francisco',
+#  :state => 'CA',
+#  :country => 'US',
+#  :zip => '94105'
+#}
+#account.billing_info.save
+#puts (account.billing_info)
+#puts "Billing Successfully Saved"
 
 puts "Creating Account Object"
 account = Recurly::Account.create(
