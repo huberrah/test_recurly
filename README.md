@@ -10,7 +10,7 @@ Creates Customer Account using Recurly API
 Verifies the account is added while verifying via UI log-in the proper amount of accounts are displayed
 
 
-DEFECTS :
+DEFECTS : versions :  Ruby 2.0.0 used, Recurly 2.4.5
 
 API Defect 1 : MAJOR : First time creating account requires billing info while  https://dev.recurly.com/docs/get-account says billing info is optional - yet creation of account using API fails without billing info
 
@@ -25,4 +25,10 @@ UI NEW BETA Defect 2 : MAJOR :  Account Code can be entered as nil by adding it 
 UI NEW BETA Defect 3 : MAJOR :  Name can be entered as nil by adding it as ''
 
 UI NEW BETA Defect 4 : MAJOR :  Company name can be entered as nil by adding it as ''
+
+UI NEW BETA Defect 5 : Minor :  Acconts Export Site Data page Time Range Field truncates 'Month to date' verbiage
+
+UI NEW BETA Defect 6 : Major :  IE9 accounts page and accounts table fully misaligned
+
+
 
