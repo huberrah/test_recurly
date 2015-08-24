@@ -9,14 +9,14 @@ Recurly.default_currency = 'USD'
 
 #set Counter to 0
 iNumberAccounts = 0
-
+iNewNumberAccounts = nil
 
 #Find the # accounts present
 Recurly::Account.find_each do |account|
-  puts iNumberAccounts += 1
+  iNumberAccounts += 1
 end
 
-iAccountCode = iNumberAccounts += 1
+iAccountCode = iNumberAccounts + 1
 
 account = Recurly::Account.find('1')
 account_code = account.account_code
@@ -45,28 +45,13 @@ account.billing_info.save
 puts (account.billing_info)
 puts "Billing Successfully Saved"
 
-puts "Creating Account ObjecT"
+puts "Creating Account Object"
 account = Recurly::Account.create(
   :account_code => "#{iAccountCode}",
   :email        => email,
   :first_name   => 'TestName',
   :last_name    => 'TestLastName'
 )
-puts account
 
-begin
-  #if account does not exist, a NotFound Error will be thrown
-  account = Recurly::Account.find '1'
-
-  #subscription will fail because a plan_code is not set
-  subscription = Recurly::Subscription.create!(:account => account)
-rescue Recurly::Resource::NotFound => e
-  puts e.message
-  
-rescue Recurly::API::UnprocessableEntity => e
-  puts e.message
-else
-  puts "Successfully Created"
-end
-puts "Script completed successfully"
-puts account.account_code
+iNewNumberAccounts = iNumberAccounts + 1
+puts " #{iNewNumberAccounts} Account(s) successfully created"
