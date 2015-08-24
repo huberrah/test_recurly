@@ -11,7 +11,7 @@ And I enter valid password credentials "<password>" field
 When I press log in button
 And I navigate to Accounts Summary
 Then I should see the accounts page
-And I should see the accounts
+And I should see the number of accounts
 
 Examples:
 | email | password|

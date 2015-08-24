@@ -28,7 +28,7 @@ end
 
 #To do :  associate the num with dynamic count of accounts from recurly obj
 
-Then(/^I should see the accounts$/) do
+Then(/^I should see the number of accounts$/) do
 @browser.span(:class => "filter_total").wait_until_present
 @browser.span(:class => "filter_total").text.should eql("#{$iNewNumberAccounts}")    
 end
