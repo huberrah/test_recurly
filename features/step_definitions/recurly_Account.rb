@@ -20,10 +20,7 @@ end
 
 iAccountCode = $iNumberAccounts + 1
 
-#Create a unique e-mail to mock uniqueness using Counter
-account = Recurly::Account.find('1')
-account_code = account.account_code
-email  = account_code + 'test@testmail.com'
+email  = iAccountCode.to_s + 'test@testmail.com'
 
 #Create the recurly account without BillingInfo
 puts "Creating Account using Recurly API"
@@ -36,5 +33,5 @@ account = Recurly::Account.create(
 
 $iNewNumberAccounts = $iNumberAccounts + 1
 
-puts " Number #{$iNewNumberAccounts} account  successfully created"
+puts " Number #{$iNewNumberAccounts} account successfully created using recurly API"
 end

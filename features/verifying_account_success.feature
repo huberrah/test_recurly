@@ -13,7 +13,6 @@ And I navigate to Accounts Summary
 Then I should see the accounts page
 And I should see the accounts
 
-#To do - dynamically create recurly object to retrieve number of accounts associated
 Examples:
 | email | password|
 |dermeister11@hotmail.com | password1|
