@@ -1,5 +1,3 @@
-
-
 Given(/^I am at Recurly Log In Page$/) do
   @browser.goto "https://app.recurly.com/login"
 end
@@ -23,18 +21,16 @@ When(/^I navigate to Accounts Summary$/) do
   
 end
 
-
-Then(/^I should see the <"([^"]*)"> page$/) do |expected|
-
-  @browser.url.should include expected
+Then(/^I should see the accounts page$/) do
+  @browser.url.should include "accounts"
   @browser.text.should include "Accounts"
 end
 
 #To do :  associate the num with dynamic count of accounts from recurly obj
-Then(/^I should see the <"([^"]*)"> accounts$/) do |num| 
-  
+
+Then(/^I should see the accounts$/) do
 @browser.span(:class => "filter_total").wait_until_present
-@browser.span(:class => "filter_total").text.should eql("0")    
+@browser.span(:class => "filter_total").text.should eql("#{$iNewNumberAccounts}")    
 end
 
 
